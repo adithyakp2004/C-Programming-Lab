@@ -1,0 +1,55 @@
+Implement structures to read, write and compute average-marks of the students, list 
+the students scoring above and below the average marks for a class of ‘N’ students.
+
+#include <stdio.h>
+struct Student 
+{
+ char name[50];
+ int roll;
+ float marks;
+};
+int main() 
+{
+ int n, i;
+ float sum = 0, average;
+ struct Student st [10];
+ // Read number of students
+ printf ("Enter number of students: ");
+ scanf ("%d", &n);
+ printf ("\n Enter details of each student:\n"); 
+for (i = 0; i < n; i++) 
+{
+ printf ("\n Student %d\n", i + 1);
+ printf ("Enter name: ");
+ gets(st[i].name); 
+// Read full name Alternate: scanf (" %[^\n]", st[i].name)
+ printf ("Enter roll number: ");
+ scanf ("%d", &st[i].roll);
+ printf ("Enter marks: ");
+ scanf ("%f", &st[i].marks);
+ sum += st[i].marks;
+ }
+// Compute average marks
+ average = sum / n;
+ printf ("\n Average Marks of class = %.2f\n", average);
+ // List students above average
+ printf ("\n Students scoring ABOVE average:\n");
+ for (i = 0; i < n; i++) 
+{
+ 
+if (st[i].marks > average) 
+{
+ printf ("Name: %s | Roll: %d | Marks: %.2f\n", st[i].name, st[i].roll, st[i].marks);
+ }
+ }
+ // List students below average
+ printf ("\n Students scoring BELOW average:\n");
+for (i = 0; i < n; i++) 
+{
+ if (st[i].marks < average) 
+{
+ printf ("Name: %s | Roll: %d | Marks: %.2f\n", st[i].name, st[i].roll, st[i].marks);
+ }
+ }
+ return 0;
+}
