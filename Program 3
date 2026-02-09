@@ -1,0 +1,17 @@
+3. Write a C program to display the multiplication table of a given number up to 10 using 
+a for loop.
+#include <stdio.h>
+int main() 
+{
+ int num, i;
+ printf("\n printing multiplication table of given Number \n");
+printf("\n --------------------------------------------------------------------------------- \n");
+ printf ("\n Enter a number for multiplication table: ");
+ scanf ("%d", &num);
+ printf ("\n Multiplication table of %d:\n", num);
+ for (i = 1; i <= 10; i++) 
+{
+ printf ("\t %d x %d = %d \n", num, i, num * i);
+ }
+ return 0;
+}
