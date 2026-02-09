@@ -1,0 +1,55 @@
+5. Implement Matrix multiplication and validate the rules of multiplication.
+#include <stdio.h>
+int main() 
+{
+ int m, n, p, q;
+ int A[10][10], B[10][10], C[10][10];
+ int i, j, k;
+ printf ("\n Matrix Multiplication \n");
+ printf ("--------------------------------------------------------- \n");
+ // Input size of matrix A
+ printf ("Enter rows and columns of matrix A: ");
+ scanf ("%d %d", &m, &n);
+ // Input size of matrix B
+ printf ("Enter rows and columns of matrix B: ");
+ scanf ("%d %d", &p, &q);
+ // Validate multiplication rule
+ if (n != p) 
+{
+ printf ("Matrix multiplication not possible.\n");
+ printf ("Rule violated: Columns of A (%d) != Rows of B (%d)\n", n, p);
+ return 0;
+ }
+// Accept matrix A
+ printf ("Enter elements of matrix A (%d x %d): \n", m, n);
+ for (i = 0; i < m; i++)
+ for (j = 0; j < n; j++)
+ scanf("%d", &A[i][j]);
+ 
+ // Accept matrix B
+ printf("Enter elements of matrix B (%d x %d): \n", p, q);
+ for (i = 0; i < p; i++)
+ for (j = 0; j < q; j++)
+ scanf("%d", &B[i][j]);
+ // Matrix multiplication
+ for (i = 0; i < m; i++) 
+{
+ for (j = 0; j < q; j++)
+{
+ C[i][j] = 0; // Initialize cell
+ for (k = 0; k < n; k++) 
+{
+ C[i][j] += A[i][k] * B[k][j];
+ }
+ }
+ }
+ // Display result
+ printf ("Resultant Matrix (%d x %d):\n", m, q);
+ for (i = 0; i < m; i++) 
+{
+ for (j = 0; j < q; j++)
+ printf ("%d\t", C[i][j]);
+ printf ("\n");
+ }
+ return 0;
+}
