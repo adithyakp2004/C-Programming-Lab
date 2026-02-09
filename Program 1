@@ -1,0 +1,53 @@
+1. Write a C program to simulate a simple calculator. The program should take two 
+numbers and an operator (+, -, *, /) as input and perform the corresponding operation 
+using a switch statement. Display an appropriate message for invalid operators and 
+handle division by zero. Consider integer input.
+#include <stdio.h>
+#include <stdlib.h>
+int main() 
+{
+ int num1, num2;
+ char op;
+ double result;
+ printf (“\n Simulation of simple calculator \n”);
+printf (“-------------------------------------------------------------------------”);
+ // Input two numbers and an operator
+ printf ("Enter first number: ");
+ scanf ("%d", &num1);
+ printf ("Enter second number: ");
+ scanf ("%d", &num2);
+ printf ("Enter an operator (+, -, *, /): ");
+ scanf (" %c", &op); 
+ // space before %c to consume any leftover newline
+ switch (op)
+ {
+ case '+':
+ 
+result = num1 + num2;
+ 
+printf ("The Sum of two numbers = %.2lf \n", result);
+ break;
+ case '-':
+result = num1 - num2;
+printf ("The Subtraction of two numbers = %.2lf \n", result);
+ break;
+ case '*':
+ 
+result = num1 * num2;
+printf ("The Multiplication of two numbers = %.2lf \n", result);
+ break;
+case '/':
+ if (num2 == 0) 
+ {
+ printf ("Error: Division by zero is not allowed.\n");
+ getch();
+ exit (0);
+ } 
+ else {
+printf ("The Division of two numbers = %.2lf \n", num1 / num2);
+ }
+ break;
+ default:
+ printf ("Error: Invalid operator '%c'.\n", op);
+ }
+}
