@@ -62,9 +62,9 @@ switch (choice)
  if (result == 0)
  printf ("Strings are equal.\n");
  else if (result > 0)
- printf ("String 2 is greater than String 1.\n");
- else
  printf ("String 1 is greater than String 2.\n");
+ else
+ printf ("String 2 is greater than String 1.\n");
  break;
  case 3:
  stringConcat (str1, str2);
